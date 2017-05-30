@@ -1,0 +1,227 @@
+@font-face {
+  font-family: 'gt_walsheim_bold';
+  src: url("../fonts/gt-walsheim-bold-web.woff");
+  src: url("../fonts/gt-walsheim-bold-web.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'gt_walsheim_light';
+  src: url("../fonts/gt-walsheim-light-web.woff");
+  src: url("../fonts/gt-walsheim-light-web.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'gt_walsheim_medium';
+  src: url("../fonts/gt-walsheim-medium-web.woff");
+  src: url("../fonts/gt-walsheim-medium-web.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'gt_walsheim_regular';
+  src: url("../fonts/gt-walsheim-regular-web.woff");
+  src: url("../fonts/gt-walsheim-regular-web.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  font-family: "gt_walsheim_regular", Arial, sans-serif;
+  background: #F0F7F4;
+  color: #555; }
+
+h1 {
+  font-family: "gt_walsheim_medium", Arial, sans-serif;
+  font-size: 30px;
+  padding: 20px 0; }
+
+a {
+  text-decoration: none;
+  cursor: pointer; }
+
+strong {
+  font-family: "gt_walsheim_bold", Arial, sans-serif; }
+
+em {
+  font-style: italic; }
+
+input, textarea {
+  font-family: "gt_walsheim_regular", Arial, sans-serif; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.block {
+  display: block; }
+
+.hidden {
+  display: none; }
+
+.invisible {
+  visibility: hidden; }
+
+.relative {
+  position: relative; }
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+
+.clearfix {
+  zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .clearfix:after {
+    clear: both; }
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.holder {
+  width: 100%;
+  max-width: 970px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.valign {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.cover {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+[disabled] {
+  cursor: not-allowed; }
+
+.danger {
+  color: #f87669; }
+
+.job-group {
+  padding: 20px 0; }
+  .job-group h2 {
+    font-size: 22px;
+    font-family: "gt_walsheim_bold", Arial, sans-serif;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d3d6db;
+    margin-bottom: 20px; }
+
+.job-list li {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #EFF0F2;
+  border-radius: 4px;
+  margin-bottom: 10px; }
+  .job-list li .label {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    margin-right: 20px; }
+  .job-list li h3 {
+    margin-top: 5px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-family: "gt_walsheim_medium", Arial, sans-serif; }
+  .job-list li .job-info {
+    color: #555; }
+  .job-list li .details > div {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 15px; }
+  .job-list li .actions {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 14px; }
+    .job-list li .actions a {
+      margin-right: 10px;
+      text-decoration: underline; }
+  .job-list li .form {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #EFF0F2; }
+    .job-list li .form input {
+      margin-right: 10px; }
+    .job-list li .form a {
+      text-decoration: underline;
+      font-size: 14px; }
+
+.button {
+  height: 40px;
+  line-height: 40px;
+  font-weight: "gt_walsheim_bold", Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+  display: block;
+  border-radius: 3px; }

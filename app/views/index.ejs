@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="app" ng-controller="AppCtrl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <base href="/">
+  <meta name="fragment" content="!">
+  <link rel="icon" href="favicon.ico">
+  <title></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <% if ( ENV_DEVELOPMENT ) { %>
+  <script src="http://localhost:35731/livereload.js"></script>
+  <% } %>
+</head>
+<body>
+  <div ng-controller="AuthCtrl"></div>
+  <h1 class="holder">isguc.co</h1>
+  <div ui-view></div>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68996153-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <script src="/js/lib.min.js"></script>
+  <script src="/js/app.min.js"></script>
+</body>
+</html>

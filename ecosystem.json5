@@ -1,0 +1,40 @@
+{
+  
+  apps : [
+
+    {
+      name      : "isguc.co",
+      script    : "app.js",
+      env: {
+        COMMON_VARIABLE: "true"
+      },
+      env_production : {
+        NODE_ENV: "production"
+      }
+    }
+
+  ],
+
+  deploy : {
+    production : {
+      user : "root",
+      host : "46.101.205.76",
+      key  : "/Users/alican/.ssh/id_rsa",
+      ref  : "origin/master",
+      repo : "git@github.com:alicin/ik.git",
+      path : "/srv/isguc.co",
+      "post-deploy" : "sh /srv/isguc.co/post-install.sh"
+    },
+    dev : {
+      user : "node",
+      host : "212.83.163.1",
+      ref  : "origin/master",
+      repo : "git@github.com:repo.git",
+      path : "/var/www/development",
+      "post-deploy" : "pm2 startOrRestart ecosystem.json5 --env dev",
+      env  : {
+        NODE_ENV: "dev"
+      }
+    }
+  }
+}

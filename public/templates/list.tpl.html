@@ -1,0 +1,188 @@
+<div class="holder">
+
+  <section class="job-group" ng-if="isAdmin" ng-if="jobs.passive">
+    <h2 ng-click="showApproval = !showApproval">Waiting Approval</h2>
+    <ul class="job-list" ng-if="showApproval">
+
+      <li class="relative" ng-repeat="job in jobs.passive">
+        <div class="label left" ng-style="{'background': job.category.color || '#555'}"></div>
+        <div class="job-info left">
+          <h3><a ng-href="{{ job.source }}" target="_blank">{{ job.title }}</a></h3>
+          <div class="details clearfix">
+            <div class="date">
+              <strong>{{ getTimeInWords(job.posted_at) }}</strong> tarihinde eklendi
+            </div>
+            <div class="organization">{{ job.organization.title }}</div>
+            <div class="location">{{ job.organization.location }}</div>
+          </div>
+        </div>
+        <div class="actions">
+          <a ng-click="toggleState(job._id)">Toggle</a>
+          <a ng-click="delete(job._id)" class="danger">Delete</a>
+        </div>
+        <div class="clear"></div>
+        <div class="form">
+          <input type="text" ng-model="job.title">
+          <input type="text" ng-model="job.organization.title">
+          <input type="text" ng-model="job.organization.location">
+          <input type="text" ng-model="job.posted_at">
+          <select style="margin-right: 10px;" ng-model="job.category"
+          ng-options="category._id as category.title for category in categories"></select>
+          <label><input type="checkbox" ng-model="job.rejected">Reject</label>
+          <a ng-click="approve(job)" style="margin-left: 10px;">Approve</a>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+  <section class="job-group" ng-if="jobs.today">
+  
+    <h2>Bugün</h2>
+
+    <ul class="job-list">
+
+      <li class="relative" ng-repeat="job in jobs.today" ng-if="job.active">
+        <div class="label left" ng-style="{'background': job.category.color}"></div>
+        <a ng-href="{{ '/?r=' + job._id }}" class="job-info block left" target="_blank">
+          <h3>{{ job.title }}</h3>
+          <div class="details clearfix">
+            <div class="date">
+              <strong>{{ getTimeInWords(job.posted_at) }}</strong> tarihinde eklendi
+            </div>
+            <div class="organization">{{ job.organization.title }}</div>
+            <div class="location">{{ job.organization.location }}</div>
+          </div>
+        </a>
+        <div class="actions" ng-if="isAdmin">
+          <a ng-click="job.edit = !job.edit">Edit</a>
+          <a ng-click="toggleState(job._id)">Toggle</a>
+          <a ng-click="delete(job._id)" class="danger">Delete</a>
+        </div>
+        <div class="clear"></div>
+        <div class="form" ng-if="job.edit">
+          <input type="text" ng-model="job.title">
+          <input type="text" ng-model="job.organization.title">
+          <input type="text" ng-model="job.organization.location">
+          <input type="text" ng-model="job.posted_at">
+          <a ng-click="approve(job)">Update</a>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+  <section class="job-group" ng-if="jobs.yesterday">
+  
+    <h2>Dün</h2>
+
+    <ul class="job-list">
+
+      <li class="relative" ng-repeat="job in jobs.yesterday" ng-if="job.active">
+        <div class="label left" ng-style="{'background': job.category.color}"></div>
+        <a ng-href="{{ '/?r=' + job._id }}" class="job-info block left" target="_blank">
+          <h3>{{ job.title }}</h3>
+          <div class="details clearfix">
+            <div class="date">
+              <strong>{{ getTimeInWords(job.posted_at) }}</strong> tarihinde eklendi
+            </div>
+            <div class="organization">{{ job.organization.title }}</div>
+            <div class="location">{{ job.organization.location }}</div>
+          </div>
+        </a>
+        <div class="actions" ng-if="isAdmin">
+          <a ng-click="job.edit = !job.edit">Edit</a>
+          <a ng-click="toggleState(job._id)">Toggle</a>
+          <a ng-click="delete(job._id)" class="danger">Delete</a>
+        </div>
+        <div class="clear"></div>
+        <div class="form" ng-if="job.edit">
+          <input type="text" ng-model="job.title">
+          <input type="text" ng-model="job.organization.title">
+          <input type="text" ng-model="job.organization.location">
+          <input type="text" ng-model="job.posted_at">
+          <a ng-click="approve(job)">Update</a>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+  <section class="job-group" ng-if="jobs.lastWeek">
+  
+    <h2>Geçen Hafta</h2>
+
+    <ul class="job-list">
+
+      <li class="relative" ng-repeat="job in jobs.lastWeek" ng-if="job.active">
+        <div class="label left" ng-style="{'background': job.category.color}"></div>
+        <a ng-href="{{ '/?r=' + job._id }}" class="job-info block left" target="_blank">
+          <h3>{{ job.title }}</h3>
+          <div class="details clearfix">
+            <div class="date">
+              <strong>{{ getTimeInWords(job.posted_at) }}</strong> tarihinde eklendi
+            </div>
+            <div class="organization">{{ job.organization.title }}</div>
+            <div class="location">{{ job.organization.location }}</div>
+          </div>
+        </a>
+        <div class="actions" ng-if="isAdmin">
+          <a ng-click="job.edit = !job.edit">Edit</a>
+          <a ng-click="toggleState(job._id)">Toggle</a>
+          <a ng-click="delete(job._id)" class="danger">Delete</a>
+        </div>
+        <div class="clear"></div>
+        <div class="form" ng-if="job.edit">
+          <input type="text" ng-model="job.title">
+          <input type="text" ng-model="job.organization.title">
+          <input type="text" ng-model="job.organization.location">
+          <input type="text" ng-model="job.posted_at">
+          <a ng-click="approve(job)">Update</a>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+  <section class="job-group" ng-if="jobs.lastMonth">
+  
+    <h2>Geçen Ay</h2>
+
+    <ul class="job-list">
+
+      <li class="relative" ng-repeat="job in jobs.lastMonth" ng-if="job.active">
+        <div class="label left" ng-style="{'background': job.category.color}"></div>
+        <a ng-href="{{ '/?r=' + job._id }}" class="job-info block left" target="_blank">
+          <h3>{{ job.title }}</h3>
+          <div class="details clearfix">
+            <div class="date">
+              <strong>{{ getTimeInWords(job.posted_at) }}</strong> tarihinde eklendi
+            </div>
+            <div class="organization">{{ job.organization.title }}</div>
+            <div class="location">{{ job.organization.location }}</div>
+          </div>
+        </a>
+        <div class="actions" ng-if="isAdmin">
+          <a ng-click="job.edit = !job.edit">Edit</a>
+          <a ng-click="toggleState(job._id)">Toggle</a>
+          <a ng-click="delete(job._id)" class="danger">Delete</a>
+        </div>
+        <div class="clear"></div>
+        <div class="form" ng-if="job.edit">
+          <input type="text" ng-model="job.title">
+          <input type="text" ng-model="job.organization.title">
+          <input type="text" ng-model="job.organization.location">
+          <input type="text" ng-model="job.posted_at">
+          <a ng-click="approve(job)">Update</a>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+</div>
